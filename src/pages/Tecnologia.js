@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Component from "../components/Footer";
 
 const Tecnologia = () => {
   return (
-    <div>Tecnologia</div>
-  )
-}
+    <>
+      <Navbar />
+      <h1>Tecnologia</h1>
+      <Component />
+    </>
+  );
+};
 
-export default Tecnologia
+export default Tecnologia;

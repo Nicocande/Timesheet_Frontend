@@ -1,26 +1,17 @@
-
-import './App.css';
-import Home from './pages/HomePage'
-import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import TimeSheet from './pages/TimeSheet';
-import AddTimeSheet from './pages/AddTimeSheet';
-import Component from './components/Footer';
+import { Route, Routes } from "react-router-dom";
+import TimeSheet from "./pages/TimeSheet";
+import AddTimeSheet from "./pages/AddTimeSheet";
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path ="/" element = {<Navbar/>}/> 
-
-        <Route index element = {<Home/>}/>
-        
-        <Route path='/timesheet' element ={<TimeSheet/>}/>
-
-        <Route path='/addtimesheet' element= {<AddTimeSheet/>}/>
-
-        <Route path='/'element= {<Component/>}/>
-        
+        <Route index element={<Home />} />
+        <Route path="/timesheet" element={<TimeSheet />} />
+        <Route path="/addtimesheet" element={<AddTimeSheet />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
