@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 
 const LoginPage = () => {
@@ -14,15 +15,15 @@ const LoginPage = () => {
         setError(null);
 
         try {
-            const response = await axios.post('http://localhost:8080/auths', {
+            const response = await axios.get('http://localhost:8080/auths', {
                 email,
                 pwd,
             });
 
             // Save token in local storage
             localStorage.setItem('authToken', response.data.entity);
+            getData();
 
-            console.log("Token", response.data.entity);
             // Redirect or other actions can go here
         } catch (err) {
             setError('Login failed. Please check your credentials.');
@@ -31,6 +32,14 @@ const LoginPage = () => {
             setLoading(false);
         }
     };
+
+    // method for get data in token
+    const getData = () => {
+        const token = localStorage.getItem('authToken');
+        const decodedToken = jwtDecode(token);
+
+        console.log("ID: " + decodedToken.id,"\nEmail: " + decodedToken.email);
+    }
 
 
     return (
