@@ -2,16 +2,16 @@
 import './App.css';
 import Home from './pages/HomePage'
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import TimeSheet from './pages/TimeSheet';
 import AddTimeSheet from './pages/AddTimeSheet';
 import Component from './components/Footer';
+import LoginPage from './components/Login';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path ="/" element = {<Navbar/>}/> 
+        <Route path ="/login" element = {<LoginPage />}/> 
 
         <Route index element = {<Home/>}/>
         
@@ -19,7 +19,7 @@ function App() {
 
         <Route path='/addtimesheet' element= {<AddTimeSheet/>}/>
 
-        <Route path='/'element= {<Component/>}/>
+        <Route path='/footer'element= {<Component/>}/>
         
       </Routes>
     </div>
