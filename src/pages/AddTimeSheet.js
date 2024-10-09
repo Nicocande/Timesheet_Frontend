@@ -7,7 +7,6 @@ const AddTimeSheet = () => {
   return (
     <>
       <Navbar />
-      <h3>AddTimeSheet</h3>
       <Component/>
     </>
   );

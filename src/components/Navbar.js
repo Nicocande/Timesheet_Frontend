@@ -2,25 +2,14 @@ import { NavLink } from "react-router-dom";
 import Home from "../pages/Home";
 import AddTimeSheet from "../pages/AddTimeSheet";
 import TimeSheet from "../pages/TimeSheet";
-import { AuthContext } from "./AuthContext";
-import { useEffect, useContext } from "react";
-import Dashboard from "../pages/Dashboard";
+import Logout from "./Logout";
 
 const Navbar = () => {
-  
-  const { auth, user } = useContext(AuthContext);
-  const [isAuthenticated, setIsAuthenticated] = auth; // null represents the initial loading state
-  const [loggeduser, setLoggeduser] = user; // null represents the initial loading state
-  
-  useEffect(() => {
-    console.log(loggeduser);
-  }, [loggeduser]);
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hover">
       <div className="container-fluid">
         <div className="logo">
-          <h1>TimeSheet</h1>
+          <h3>TimeSheet</h3>
         </div>
         <button
           class="navbar-toggler"
@@ -51,13 +40,8 @@ const Navbar = () => {
                 Add NewTimeSheet
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink to="/" className={Dashboard}>
-                Dashboard
-              </NavLink>
-            </li>
           </ul>
-          <span >utente: {isAuthenticated ? `${loggeduser}` : ``}</span>
+          <Logout/>
         </div>
       </div>
     </nav>

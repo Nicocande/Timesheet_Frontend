@@ -1,17 +1,21 @@
 import { Route, Routes } from "react-router-dom";
 import TimeSheet from "./pages/TimeSheet";
 import AddTimeSheet from "./pages/AddTimeSheet";
-import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import Tecnologia from "./pages/Tecnologia";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element= {<LoginPage/>}/>
+        <Route path="/signuppage" element={<SignUpPage/>}/>
+        <Route path="/home" element={<Home />} />
         <Route path="/timesheet" element={<TimeSheet />} />
         <Route path="/addtimesheet" element={<AddTimeSheet />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/tecnologia" element={<Tecnologia/>} />
       </Routes>
     </div>
   );

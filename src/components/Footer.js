@@ -1,4 +1,4 @@
-import Dashboard from "../pages/Dashboard";
+
 import Tecnologia from "../pages/Tecnologia";
 
 import { Footer } from "flowbite-react";
@@ -12,9 +12,6 @@ export function Component() {
           <Footer.LinkGroup col>
             <Footer.Link to="/tecnologia" className={Tecnologia}>
               Tecnologia
-            </Footer.Link>
-            <Footer.Link to="/contatti" className={Dashboard}>
-              Contatti
             </Footer.Link>
           </Footer.LinkGroup>
         </div>

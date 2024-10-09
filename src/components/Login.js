@@ -1,181 +1,118 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import "../styles/LoginForm.css";
 
-function Login() {
-  const [action, setAction] = useState("Sign up");
-  const [email, setEmail] = useState("");
-  const [pwd, setPwd] = useState("");
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
+const Login = (async) => {
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    pwd: "",
+  });
 
-  const resetTextFields = () => {
-    setEmail("");
-    setPwd("");
-    setName("");
-    setLastname("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = async (e) => {
-    if (action === "Sign up") {
-      await handleSignUp();
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.email) {
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid.";
     }
-    if (action === "Log in") {
-      await handleLogIn();
-    }
+    if (!formData.pwd) newErrors.pwd = "Password is required.";
+    return newErrors;
   };
 
-  const handleLogIn = async () => {
-    const dati = { email, pwd };
-    const datiLogin = JSON.stringify(dati);
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setError(newErrors);
+    } else {
+      setError({});
+      console.log("Login Successful:", formData);
+     
+    }
+     await handleLogIn();
+  };
 
+  async function handleLogIn() {
     try {
-      const response = await fetch("http://localhost:8080/auths", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: datiLogin,
-      });
+      
+      const response = await axios.post(
+        "http://localhost:8080/auths", 
+        formData
+      );
+      const tk = response.data.token.string;
+      const jwtdecoded = jwtDecode(tk);
+      const id = jwtdecoded.sub;
+      console.log("Success", response.data);
 
-      if (!response.ok) {
-        throw new Error(`Log In error!  status: ${response.status}`);
-      }
-
-      const resp = await response.json();
-      console.log("Success:", resp);
-      setSuccess(true);
-      setError(null);
-      navigate("/timesheet");
+      localStorage.setItem("token", tk);
+      localStorage.setItem("Id", id);
+      console.log("Login Successful:", formData);
+      navigate("home");
     } catch (error) {
-      console.error("Log In Error:", error);
-      setError(error.message);
+     console.error("Log In Error:", error);
+      setError({ api: error.message || "Login failed." });
       setSuccess(false);
     }
-  };
-
-  const handleSignUp = async () => {
-    const dati = { name, lastname, email, pwd };
-    const datiRegistration = JSON.stringify(dati);
-    try {
-      const response = await fetch("http://localhost:8080/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: datiRegistration,
-      });
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(
-          `Sign Up error! status: ${response.status} ${errorText}`
-        );
-      }
-
-      const resp = await response.json();
-      console.log("Success:", resp);
-      setSuccess(true);
-      setError(null);
-      navigate("/timesheet");
-    } catch (error) {
-      console.error("Sign Up Error:", error);
-      setError(error.message);
-      setSuccess(false);
-    }
-  };
+  }
 
   return (
     <div className="container">
       <div className="header">
-        <div className="text">{action}</div>
+        <h2>Log In</h2>
         <div className="underline"></div>
-
-        <div className="inputs">
-          {action === "Log in" ? (
-            <div></div>
-          ) : (
+        <form>
+          <div className="inputs">
             <div className="input">
-              <i className="bi bi-person"></i>
+              <i className="bi bi-envelope"></i>
               <input
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Name"
+                name="email"
+                onChange={handleChange}
+                placeholder="Email"
                 required
               />
             </div>
-          )}
-          {action === "Log in" ? (
-            <div></div>
-          ) : (
             <div className="input">
-              <i className="bi bi-person"></i>
+              <i className="bi bi-lock"></i>
               <input
-                type="text"
-                value={lastname}
-                onChange={(e) => setLastname(e.target.value)}
-                placeholder="Lastname"
+                type="password"
+                name="pwd"
+                onChange={handleChange}
+                placeholder="Password"
                 required
               />
             </div>
-          )}
-          <div className="input">
-            <i className="bi bi-envelope"></i>
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div className="input">
-            <i className="bi bi-lock"></i>
-            <input
-              type="password"
-              value={pwd}
-              onChange={(e) => setPwd(e.target.value)}
-              placeholder="Password"
-              required
-            />
-          </div>
-        </div>
-
-        {action === "Sign up" ? (
-          <div></div>
-        ) : (
-          <div className="forgot-password">
-            Lost Password? <span>Click Here!</span>
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit}>
-          {/* Inputs */}
-          <div className="submit-container">
-            <button
-              type="button"
-              onClick={() => {
-                setAction("Sign up");
-                resetTextFields();
-              }}
-            >
-              Sign up
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setAction("Log in");
-                resetTextFields();
-              }}
-            >
-              Log in
-            </button>
-            <button type="submit">Submit</button>
+            <div className="submit-container">
+              <button type="button" className="text" onClick={handleSubmit}>
+                Login
+              </button>
+              <button
+                type="button"
+                className="text"
+                onClick={() => navigate("/signuppage")}
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         </form>
       </div>
       {error && <div style={{ color: "red" }}>{error}</div>}
-      {success && <div style={{ color: "green" }}>Sign up successful!</div>}
+      {success && <div style={{ color: "green" }}>Log In successful!</div>}
     </div>
   );
-}
+};
 export default Login;

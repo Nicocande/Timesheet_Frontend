@@ -6,7 +6,6 @@ const TimeSheet = () => {
   return (
     <>
       <Navbar />
-      <h1>TimeSheet</h1>
       <Component />
     </>
   );

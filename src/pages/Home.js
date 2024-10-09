@@ -1,14 +1,14 @@
-
-import React from 'react';
-import Login from '../components/Login';
-
+import React from "react";
+import Navbar from "../components/Navbar";
+import Component from "../components/Footer";
 
 const Home = () => {
   return (
     <>
-     <Login/>
+      <Navbar />
+      <Component />
     </>
-  )
-}
+  );
+};
 
 export default Home;
