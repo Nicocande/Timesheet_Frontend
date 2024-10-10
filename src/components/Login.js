@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import "../styles/LoginForm.css";
 
-const Login = (async) => {
+const Login = ({firstemail,firstpwd}) => {
+  
   const navigate = useNavigate();
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  // const [success, setSuccess] = useState("");
+
   const [formData, setFormData] = useState({
-    email: "",
-    pwd: "",
+    email: (firstemail||""),
+    pwd: (firstpwd||"")
   });
+  const [errors, setErrors] = useState({});
+
+  useEffect(()=>{
+    if(firstemail){
+
+      setFormData.email = firstemail
+    }
+    if(firstpwd){
+
+      setFormData.pwd = firstpwd
+    }
+  },[firstemail,firstpwd])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,27 +45,24 @@ const Login = (async) => {
     return newErrors;
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = validateForm();
-    if (Object.keys(newErrors).length > 0) {
-      setError(newErrors);
-    } else {
-      setError({});
-      console.log("Login Successful:", formData);
-     
-    }
-     await handleLogIn();
+    const err = validateForm();
+    setErrors(err);
+    if(!errors)
+    console.log("Submit Successful:", formData);
+    handleLogIn();
   };
 
   async function handleLogIn() {
     try {
       
       const response = await axios.post(
-        "http://localhost:8080/auths", 
-        formData
+        "http://localhost:8080/auths", formData
+        
       );
-      const tk = response.data.token.string;
+      console.log(response);
+      const tk = response.data.entity.token.string;
       const jwtdecoded = jwtDecode(tk);
       const id = jwtdecoded.sub;
       console.log("Success", response.data);
@@ -60,11 +70,10 @@ const Login = (async) => {
       localStorage.setItem("token", tk);
       localStorage.setItem("Id", id);
       console.log("Login Successful:", formData);
-      navigate("home");
+      navigate("/home");
     } catch (error) {
      console.error("Log In Error:", error);
-      setError({ api: error.message || "Login failed." });
-      setSuccess(false);
+  
     }
   }
 
@@ -80,21 +89,25 @@ const Login = (async) => {
               <input
                 type="text"
                 name="email"
+                value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
                 required
               />
             </div>
+            {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
             <div className="input">
               <i className="bi bi-lock"></i>
               <input
                 type="password"
                 name="pwd"
+                value={formData.pwd}
                 onChange={handleChange}
                 placeholder="Password"
                 required
               />
             </div>
+            {errors.pwd && <p style={{ color: "red" }}>{errors.pwd}</p>}
             <div className="submit-container">
               <button type="button" className="text" onClick={handleSubmit}>
                 Login
@@ -110,8 +123,6 @@ const Login = (async) => {
           </div>
         </form>
       </div>
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      {success && <div style={{ color: "green" }}>Log In successful!</div>}
     </div>
   );
 };

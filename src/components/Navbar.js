@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import Home from "../pages/Home";
 import AddTimeSheet from "../pages/AddTimeSheet";
 import TimeSheet from "../pages/TimeSheet";
 import Logout from "./Logout";
+import Tecnologia from "../pages/Tecnologia";
 
 const Navbar = () => {
   return (
@@ -25,11 +25,6 @@ const Navbar = () => {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink to="/" className={Home}>
-                Home
-              </NavLink>
-            </li>
             <li className="nav-item ">
               <NavLink to="/timesheet" className={TimeSheet}>
                 TimeSheets
@@ -38,6 +33,11 @@ const Navbar = () => {
             <li className="nav-item ">
               <NavLink to="/addtimesheet" className={AddTimeSheet}>
                 Add NewTimeSheet
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/tecnologia" className={Tecnologia}>
+                Tecnologia
               </NavLink>
             </li>
           </ul>
