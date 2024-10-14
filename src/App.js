@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import TimeSheet from "./pages/TimeSheet";
 import AddTimeSheet from "./pages/AddTimeSheet";
-import Home from "./pages/Home";
 import Tecnologia from "./pages/Tecnologia";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
@@ -12,7 +11,6 @@ function App() {
       <Routes>
         <Route index element= {<LoginPage/>}/>
         <Route path="/signuppage" element={<SignUpPage/>}/>
-        <Route path="/home" element={<Home />} />
         <Route path="/timesheet" element={<TimeSheet />} />
         <Route path="/addtimesheet" element={<AddTimeSheet />} />
         <Route path="/tecnologia" element={<Tecnologia/>} />

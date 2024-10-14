@@ -12,7 +12,7 @@ function Logout() {
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("token");
-    navigate("home");
+    navigate("/");
   };
 
   return (

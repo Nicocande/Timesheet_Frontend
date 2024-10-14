@@ -64,13 +64,13 @@ const Login = ({firstemail,firstpwd}) => {
       console.log(response);
       const tk = response.data.entity.token.string;
       const jwtdecoded = jwtDecode(tk);
-      const id = jwtdecoded.sub;
+      const id = jwtdecoded.id;
       console.log("Success", response.data);
 
       localStorage.setItem("token", tk);
       localStorage.setItem("Id", id);
       console.log("Login Successful:", formData);
-      navigate("/home");
+      navigate("/timesheet");
     } catch (error) {
      console.error("Log In Error:", error);
   
