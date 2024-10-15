@@ -1,19 +1,11 @@
-
-import Tecnologia from "../pages/Tecnologia";
-
 import { Footer } from "flowbite-react";
-
 
 export function Component() {
   return (
     <Footer className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hove text-center fixed-bottom">
       <div className="container-fluid  ">
         <div>
-          <Footer.LinkGroup col>
-            <Footer.Link to="/tecnologia" className={Tecnologia}>
-              Tecnologia
-            </Footer.Link>
-          </Footer.LinkGroup>
+          <Footer.LinkGroup col>MyTimeSheet</Footer.LinkGroup>
         </div>
         <div>
           <Footer.LinkGroup col>

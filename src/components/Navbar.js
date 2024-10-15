@@ -32,12 +32,12 @@ const Navbar = () => {
             </li>
             <li className="nav-item ">
               <NavLink to="/addtimesheet" className={AddTimeSheet}>
-                Add NewTimeSheet
+                Add New
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/tecnologia" className={Tecnologia}>
-                Tecnologia
+                Tecnology
               </NavLink>
             </li>
           </ul>
