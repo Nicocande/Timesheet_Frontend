@@ -53,6 +53,7 @@ const TimesheetForm = () => {
 
         if (response.status === 200) {
           console.log(response.data.entity);
+
           setFormData({
             activity: "",
             description: "",
@@ -60,6 +61,8 @@ const TimesheetForm = () => {
             end: "",
           });
           setErrors({});
+
+          alert("Timesheet added successfully");
         }
       }
     } catch (error) {
@@ -130,7 +133,11 @@ const TimesheetForm = () => {
             {errors.end && <p style={{ color: "red" }}>{errors.end}</p>}
           </div>
           <div className="submit-container">
-            <button type="submit" className="text" onClick={handleForm}>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={handleForm}
+            >
               New
             </button>
           </div>

@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hover">
       <div className="container-fluid">
         <div className="logo">
-          <h3>TimeSheet</h3>
+          <h3>MyTimeSheet</h3>
         </div>
         <button
           className="navbar-toggler"
