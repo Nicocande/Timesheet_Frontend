@@ -3,10 +3,10 @@ import axios from "axios";
 
 const TimesheetForm = () => {
   const [formData, setFormData] = useState({
-    activity: "",
-    description: "",
     start: "",
     end: "",
+    description: "",
+    activity: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -28,7 +28,7 @@ const TimesheetForm = () => {
     if (!formData.end) newErrors.end = "End date is required.";
     return newErrors;
   };
-  
+
   const handleForm = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
@@ -107,7 +107,7 @@ const TimesheetForm = () => {
             <label className="input">
               <input
                 className="input"
-                type="date"
+                type="datetime-local"
                 name="start"
                 value={formData.start}
                 onChange={handleChange}
@@ -120,7 +120,7 @@ const TimesheetForm = () => {
             <label className="input">
               <input
                 className="input"
-                type="date"
+                type="datetime-local"
                 name="end"
                 value={formData.end}
                 onChange={handleChange}

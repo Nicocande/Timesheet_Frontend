@@ -1,60 +1,5 @@
 
 
-.container-fluid{
-    
-    display: flex;
-    align-items: center;
-
-}
-
-.navbar-toggler {
-  padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
-  font-size: var(--bs-navbar-toggler-font-size);
-  line-height: 1;
-  color: var(--bs-navbar-color);
-  background-color: transparent;
-  border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
-  border-radius: var(--bs-navbar-toggler-border-radius);
-  transition: var(--bs-navbar-toggler-transition);
-}
-.navbar-nav {
-  display: flex;
-  justify-content: center; /* Centra gli elementi all'interno del flex container */
-  width: 100%; /* Assicura che occupino l'intera larghezza della navbar */
-}
-
-.nav-item {
-  padding: 0 15px; /* Aggiunge un po' dipadding orizzontale tra i nav-item */
-}
-
-.navbar-brand {
-  
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.navbar-menu {
-  display: inline;
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-
-}
-
-
-.navbar-item {
-  margin-left: 0%;
-  margin-right: 0%;
-}
-
-.navbar-item a {
-  display: inline-flex;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
-}
 
 footer{
   display: inline-flex;
@@ -69,13 +14,11 @@ footer{
 }
 
 .body {
-  height: 100vh;
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 

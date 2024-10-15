@@ -3,6 +3,7 @@ import AddTimeSheet from "../pages/AddTimeSheet";
 import TimeSheet from "../pages/TimeSheet";
 import Logout from "./Logout";
 import Tecnologia from "../pages/Tecnologia";
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   return (
