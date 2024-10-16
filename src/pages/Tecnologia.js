@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Component from "../components/Footer";
+import Tecnologie from "../components/Tecnologie";
 
 const Tecnologia = () => {
   return (
     <>
       <Navbar />
-      <h1>Tecnologia</h1>
+      <Tecnologie/>
       <Component />
     </>
   );

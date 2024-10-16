@@ -50,20 +50,14 @@ const TimesheetForm = () => {
             },
           }
         );
-
-        if (response.status === 200) {
-          console.log(response.data.entity);
-
-          setFormData({
-            activity: "",
-            description: "",
-            start: "",
-            end: "",
-          });
-          setErrors({});
-
-          alert("Timesheet added successfully");
-        }
+        setFormData({
+          activity: "",
+          description: "",
+          start: "",
+          end: "",
+        });
+        alert("Timesheet added successfully");
+        setErrors({});
       }
     } catch (error) {
       setErrors("Failed to create timesheets.");

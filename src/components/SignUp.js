@@ -78,6 +78,7 @@ const SignUp = (async) => {
                 <label className="input">
                   <i className="bi bi-person"></i>
                   <input
+                    className="input"
                     type="text"
                     name="name"
                     value={formData.name}

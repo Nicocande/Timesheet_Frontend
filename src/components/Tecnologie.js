@@ -1,11 +1,37 @@
-import React from 'react'
+import React from "react";
+import QuarkusLogo from "../images/Quarkus.png";
+import ReactLogo from "../images/React.png";
+import JsLogo from "../images/Js.png";
+import JavaLogo from "../images/Java.png";
+import SqlLogo from "../images/SqlLogo.png";
 
 const Tecnologie = () => {
   return (
-    <div className='container-fluid'>
-      
+    <div className="container-fluid mt-5">
+      <div className="row">
+        <div className="col">
+        <img src={QuarkusLogo} />
+        </div>
+        
+        <div className="col">
+        <img src={ReactLogo} />
+        </div>
+       
+        <div className="col">
+        <img src={JsLogo} />
+        </div>
+       
+        <div className="col">
+        <img src={JavaLogo} />
+        </div>
+        
+        <div className="col">
+        <img src={SqlLogo} />
+        </div>
+        
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tecnologie
+export default Tecnologie;
