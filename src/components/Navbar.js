@@ -3,12 +3,12 @@ import AddTimeSheet from "../pages/AddTimeSheet";
 import TimeSheet from "../pages/TimeSheet";
 import Logout from "./Logout";
 import Tecnologia from "../pages/Tecnologia";
-import '../styles/Navbar.css';
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hover">
-      <div className="container-fluid">
+    <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hover">
         <div className="logo">
           <h3>MyTimeSheet</h3>
         </div>
@@ -42,10 +42,10 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <Logout/>
+          <Logout />
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 export default Navbar;

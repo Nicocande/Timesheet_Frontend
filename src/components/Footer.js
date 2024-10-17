@@ -2,8 +2,8 @@ import { Footer } from "flowbite-react";
 
 export function Component() {
   return (
-    <Footer className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hove text-center fixed-bottom">
-      <div className="container-fluid  ">
+    <div className="container-fluid">
+      <div className="bg-info d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
         <div>
           <Footer.LinkGroup col>MyTimeSheet</Footer.LinkGroup>
         </div>
@@ -20,7 +20,7 @@ export function Component() {
           </Footer.LinkGroup>
         </div>
       </div>
-    </Footer>
+    </div>
   );
 }
 export default Component;

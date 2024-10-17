@@ -108,7 +108,7 @@ const TimesheetForm = () => {
                 name="start"
                 value={formData.start}
                 onChange={handleChange}
-                placeholder="start-date"
+                placeholder="start-dtae"
               />
             </label>
             {errors.start && <p style={{ color: "red" }}>{errors.start}</p>}
