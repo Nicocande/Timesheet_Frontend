@@ -1,6 +1,10 @@
 .card {
     transition: transform 0.2s;
   }
+  .card-header{
+
+    background-color: cornflowerblue;
+  }
   .card:hover {
     transform: translateY(-5px);
   }
