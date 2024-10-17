@@ -70,6 +70,7 @@ const Login = ({firstemail,firstpwd}) => {
       localStorage.setItem("token", tk);
       localStorage.setItem("Id", id);
       console.log("Login Successful:", formData);
+      alert("Login Successful:", formData);
       navigate("/timesheet");
     } catch (error) {
      console.error("Log In Error:", error);

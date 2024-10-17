@@ -59,7 +59,7 @@ const TimeSheetsList = () => {
   }, []);
 
   return (
-    <div className="container-fluid mt-5">
+    <div className="scrollable-container-fluid mt-5">
       {error && <p style={{ color: "red" }}>{error}</p>}
       {!error && timesheets.length === 0 && <p>No timesheets found.</p>}
       <div className="row">
