@@ -1,11 +1,12 @@
 import { Footer } from "flowbite-react";
+import TimeSheetLogo from "../images/TimesheetLogo.png";
 
 export function Component() {
   return (
     <div className="container-fluid">
       <div className="bg-info d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
-        <div>
-          <Footer.LinkGroup col>MyTimeSheet</Footer.LinkGroup>
+        <div className="logo">
+         <img src= {TimeSheetLogo} alt=""/>
         </div>
         <div>
           <Footer.LinkGroup col>

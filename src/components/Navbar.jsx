@@ -4,13 +4,14 @@ import TimeSheet from "../pages/TimeSheet";
 import Logout from "./Logout";
 import Tecnologia from "../pages/Tecnologia";
 import "../styles/Navbar.css";
+import TimeSheetLogo from "../images/TimesheetLogo.png";
 
 const Navbar = () => {
   return (
     <div className="container-fluid">
       <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary navbar-item a:hover">
         <div className="logo">
-          <h3>MyTimeSheet</h3>
+          <h3>MyTimeSheet</h3> <img src= {TimeSheetLogo} alt=""/>
         </div>
         <button
           className="navbar-toggler"

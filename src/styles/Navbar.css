@@ -39,6 +39,12 @@
   color: #007bff; /* Bootstrap primary color */
   font-weight: bold;
 }
+.logo img{
+
+  border-radius: 50px;
+  height: 80px;
+ 
+}
 .navbar-nav .nav-item .nav-item {
   color: #333; /* Dark links */
   transition: color 0.3s ease; /* Smooth transition for hover effect */

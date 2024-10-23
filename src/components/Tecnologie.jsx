@@ -10,23 +10,23 @@ const Tecnologie = () => {
     <div className="container-fluid mt-5">
       <div className="row">
         <div className="col">
-        <img src={QuarkusLogo} />
+        <img src={QuarkusLogo} alt=""/>
         </div>
         
         <div className="col">
-        <img src={ReactLogo} />
+        <img src={ReactLogo} alt="" />
         </div>
        
         <div className="col">
-        <img src={JsLogo} />
+        <img src={JsLogo} alt="" />
         </div>
        
         <div className="col">
-        <img src={JavaLogo} />
+        <img src={JavaLogo} alt="" />
         </div>
         
         <div className="col">
-        <img src={SqlLogo} />
+        <img src={SqlLogo} alt="" />
         </div>
         
       </div>
