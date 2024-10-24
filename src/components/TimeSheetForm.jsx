@@ -105,7 +105,7 @@ const TimesheetForm = () => {
             <div>
               <label className="input">
                 <input
-                  className="input"
+                  className="form-control"
                   type="datetime-local"
                   name="start"
                   value={formData.start}
@@ -118,7 +118,7 @@ const TimesheetForm = () => {
             <div>
               <label className="input">
                 <input
-                  className="input"
+                  className="form-control"
                   type="datetime-local"
                   name="end"
                   value={formData.end}
