@@ -83,13 +83,13 @@ const TimeSheetsList = () => {
                 {confirmationId === timesheet.id ? (
                   <>
                     <button
-                      className="btn btn-danger "
+                      className="btn btn-danger col"
                       onClick={() => handleDelete(timesheet.id)}
                     >
                       Confirm Delete
                     </button>
                     <button
-                      className="btn btn-secondary"
+                      className="btn btn-secondary col" 
                       onClick={handleCancel}
                     >
                       Cancel

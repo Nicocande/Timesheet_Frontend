@@ -3,28 +3,26 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import "../styles/LoginForm.css";
+import TimeSheetLogo from "../images/TimesheetLogo.png";
 
-const Login = ({firstemail,firstpwd}) => {
-  
+const Login = ({ firstemail, firstpwd }) => {
   const navigate = useNavigate();
   // const [success, setSuccess] = useState("");
 
   const [formData, setFormData] = useState({
-    email: (firstemail||""),
-    pwd: (firstpwd||"")
+    email: firstemail || "",
+    pwd: firstpwd || "",
   });
   const [errors, setErrors] = useState({});
 
-  useEffect(()=>{
-    if(firstemail){
-
-      setFormData.email = firstemail
+  useEffect(() => {
+    if (firstemail) {
+      setFormData.email = firstemail;
     }
-    if(firstpwd){
-
-      setFormData.pwd = firstpwd
+    if (firstpwd) {
+      setFormData.pwd = firstpwd;
     }
-  },[firstemail,firstpwd])
+  }, [firstemail, firstpwd]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,37 +53,44 @@ const Login = ({firstemail,firstpwd}) => {
     } else {
       console.warn("Form contains errors", err);
     }
-  }
-  
+  };
 
   async function handleLogIn() {
     try {
-      
       const response = await axios.post(
-        "http://localhost:8080/auths", formData
-        
+        "http://localhost:8080/auths",
+        formData
       );
-      if (response.status === 200) { 
+      if (response.status === 200) {
         const tk = response.data.entity.token.string;
         const jwtdecoded = jwtDecode(tk);
         const id = jwtdecoded.id;
 
-      localStorage.setItem("token", tk);
-      localStorage.setItem("Id", id);
-      console.log("Login Successful:", formData);
-      alert("Login Successful:");
-      navigate("/timesheet");
+        localStorage.setItem("token", tk);
+        localStorage.setItem("Id", id);
+        console.log("Login Successful:", formData);
+        alert("Login Successful:");
+        navigate("/timesheet");
       }
     } catch (error) {
-     console.error("Log In Error:", error);
-     setFormData({ email: "", pwd: "" });
-     alert("Login failed. Please check your credentials.");
+      console.error("Log In Error:", error);
+      setFormData({ email: "", pwd: "" });
+      alert("Login failed. Please check your credentials.");
     }
   }
 
   return (
     <div className="container">
-      <h1>MY TIMESHEET</h1>
+      <div className="row">
+        <div className="logo">
+          <div className="col-sm-6">
+            <h3>MyTimeSheet</h3>
+          </div>
+          <div className="col-sm-6">
+            <img src={TimeSheetLogo} alt="" />
+          </div>
+        </div>
+      </div>
       <div className="header">
         <h2>Log In</h2>
         <div className="underline"></div>

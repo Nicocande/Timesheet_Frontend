@@ -66,81 +66,79 @@ const TimesheetForm = () => {
   };
 
   return (
-    <card className="card">
-      <div className="container">
-        <h2>Create New</h2>
-        <div className="underline"></div>
-        <form>
-          <div className="inputs">
-            <div>
-              <label className="input">
-                <input
-                  className="input"
-                  type="text"
-                  name="activity"
-                  value={formData.activity}
-                  onChange={handleChange}
-                  placeholder="activity"
-                />
-              </label>
-              {errors.activity && (
-                <p style={{ color: "red" }}>{errors.activity}</p>
-              )}
-            </div>
-            <div>
-              <label className="input">
-                <input
-                  className="input"
-                  type="text"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  placeholder="description"
-                />
-              </label>
-              {errors.description && (
-                <p style={{ color: "red" }}>{errors.description}</p>
-              )}
-            </div>
-            <div>
-              <label className="input">
-                <input
-                  className="form-control"
-                  type="datetime-local"
-                  name="start"
-                  value={formData.start}
-                  onChange={handleChange}
-                  placeholder="start-dtae"
-                />
-              </label>
-              {errors.start && <p style={{ color: "red" }}>{errors.start}</p>}
-            </div>
-            <div>
-              <label className="input">
-                <input
-                  className="form-control"
-                  type="datetime-local"
-                  name="end"
-                  value={formData.end}
-                  onChange={handleChange}
-                  placeholder="end-date"
-                />
-              </label>
-              {errors.end && <p style={{ color: "red" }}>{errors.end}</p>}
-            </div>
-            <div className="submit-container">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={handleForm}
-              >
-                New
-              </button>
-            </div>
+    <div className="container">
+      <h2>Create New</h2>
+      <div className="underline"></div>
+      <form>
+        <div className="inputs">
+          <div>
+            <label className="input">
+              <input
+                className="input"
+                type="text"
+                name="activity"
+                value={formData.activity}
+                onChange={handleChange}
+                placeholder="activity"
+              />
+            </label>
+            {errors.activity && (
+              <p style={{ color: "red" }}>{errors.activity}</p>
+            )}
           </div>
-        </form>
-      </div>
-    </card>
+          <div>
+            <label className="input">
+              <input
+                className="input"
+                type="text"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="description"
+              />
+            </label>
+            {errors.description && (
+              <p style={{ color: "red" }}>{errors.description}</p>
+            )}
+          </div>
+          <div>
+            <label className="input">
+              <input
+                className="form-control"
+                type="datetime-local"
+                name="start"
+                value={formData.start}
+                onChange={handleChange}
+                placeholder="start-dtae"
+              />
+            </label>
+            {errors.start && <p style={{ color: "red" }}>{errors.start}</p>}
+          </div>
+          <div>
+            <label className="input">
+              <input
+                className="form-control"
+                type="datetime-local"
+                name="end"
+                value={formData.end}
+                onChange={handleChange}
+                placeholder="end-date"
+              />
+            </label>
+            {errors.end && <p style={{ color: "red" }}>{errors.end}</p>}
+          </div>
+          <div className="submit-container">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={handleForm}
+            >
+              New
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 export default TimesheetForm;
