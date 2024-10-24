@@ -5,6 +5,7 @@ import "../styles/Timesheet.css";
 const TimeSheetsList = () => {
   const [timesheets, setTimesheets] = useState([]);
   const [error, setError] = useState(null);
+  const [confirmationId, setConfirmationId] = useState(null);
 
   async function handleTimesheet() {
     try {
@@ -33,7 +34,7 @@ const TimeSheetsList = () => {
     const uid = localStorage.Id;
     const token = localStorage.getItem("token");
 
-    if (window.confirm("Are you sure you want to delete this timesheet?")) {
+    if (confirmationId === id) {
       try {
         const response = await axios.delete(
           `http://localhost:8080/user/${uid}/timesheet/${id}`,
@@ -46,13 +47,19 @@ const TimeSheetsList = () => {
         setTimesheets((prevTimesheets) =>
           prevTimesheets.filter((ts) => ts.id !== id)
         );
-        alert("Timesheet deleted successfully");
+        setConfirmationId(null);
         handleTimesheet();
       } catch (error) {
         setError("Failed to delete the timesheet");
       }
+    } else {
+      // Show confirmation
+      setConfirmationId(id);
     }
   }
+  const handleCancel = () => {
+    setConfirmationId(null); // Reset confirmation state
+  };
 
   useEffect(() => {
     handleTimesheet();
@@ -73,13 +80,30 @@ const TimeSheetsList = () => {
                 <p className="card-text">{timesheet.description}</p>
                 <p>Start: {timesheet.start}</p>
                 <p>End: {timesheet.end}</p>
-                <button
-                  id={timesheet.id}
-                  className="btn btn-danger"
-                  onClick={(e) => handleDelete(e.target.id)}
-                >
-                  Delete
-                </button>
+                {confirmationId === timesheet.id ? (
+                  <>
+                    <button
+                      className="btn btn-danger "
+                      onClick={() => handleDelete(timesheet.id)}
+                    >
+                      Confirm Delete
+                    </button>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={handleCancel}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    id={timesheet.id}
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(timesheet.id)}
+                  >
+                    Delete
+                  </button>
+                )}
               </div>
             </div>
           </div>
