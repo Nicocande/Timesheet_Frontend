@@ -6,15 +6,11 @@ import TimeSheetsList from "../components/TimeSheetsList";
 const TimeSheet = () => {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-      <body>
-        <TimeSheetsList />
-      </body>
-      <footer>
-        <Component />
-      </footer>
+      <Navbar />
+
+      <TimeSheetsList />
+
+      <Component />
     </>
   );
 };

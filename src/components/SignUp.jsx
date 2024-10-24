@@ -41,13 +41,14 @@ const SignUp = (async) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = validateForm();
-    setErrors(newErrors);
-    if (!Object.keys(newErrors).length > 0) {
+    const err = validateForm();
+    setErrors(err);
+    if (Object.keys(err).length === 0) {
       console.log("Submit Successful:", formData);
+      handleSignUp();
+    } else {
+      console.warn("Form contains errors", err);
     }
-
-    handleSignUp();
   };
 
   async function handleSignUp() {
@@ -56,13 +57,12 @@ const SignUp = (async) => {
         "http://localhost:8080/users",
         formData
       );
-
       console.log("Sign Up successful:", response.data.entity);
-      // todo: get token from login
       setShowLogin(true);
     } catch (error) {
       setErrors("Sign Up failed");
-      console.error(error);
+      setFormData({name:"",lastname:"", email: "", pwd: "" });
+      alert("Submit failed. Please check your credentials.");
     }
   }
 
