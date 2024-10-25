@@ -68,13 +68,12 @@ const TimesheetForm = () => {
   return (
     <div className="container">
       <h2>Create New</h2>
-      <div className="underline"></div>
       <form>
         <div className="inputs">
           <div>
-            <label className="input">
+            <label className="label-input">
               <input
-                className="input"
+                className="form-control"
                 type="text"
                 name="activity"
                 value={formData.activity}
@@ -87,9 +86,9 @@ const TimesheetForm = () => {
             )}
           </div>
           <div>
-            <label className="input">
+            <label className="label-input">
               <input
-                className="input"
+                className="form-control"
                 type="text"
                 name="description"
                 value={formData.description}
@@ -102,7 +101,7 @@ const TimesheetForm = () => {
             )}
           </div>
           <div>
-            <label className="input">
+            <label className="label-input">
               <input
                 className="form-control"
                 type="datetime-local"
@@ -115,7 +114,7 @@ const TimesheetForm = () => {
             {errors.start && <p style={{ color: "red" }}>{errors.start}</p>}
           </div>
           <div>
-            <label className="input">
+            <label className="label-input">
               <input
                 className="form-control"
                 type="datetime-local"

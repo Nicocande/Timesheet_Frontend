@@ -86,7 +86,7 @@ const TimeSheetsList = () => {
                       className="btn btn-danger col"
                       onClick={() => handleDelete(timesheet.id)}
                     >
-                      Confirm Delete
+                      Confirm
                     </button>
                     <button
                       className="btn btn-secondary col" 

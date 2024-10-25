@@ -93,7 +93,6 @@ const Login = ({ firstemail, firstpwd }) => {
       </div>
       <div className="header">
         <h2>Log In</h2>
-        <div className="underline"></div>
         <form>
           <div className="inputs">
             <div className="input">

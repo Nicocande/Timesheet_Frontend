@@ -1,9 +1,40 @@
 .container {
-    margin-top: 5%;
-
+    margin-top: 10%;
+    align-items: center;
+    
 }
 
 .container.card{
-    margin-bottom: 80%;
+    margin-bottom: 0%;
 }
+
+.container form{
+
+    background-color: cornflowerblue;
+    border-radius: 20%;
+    width: 420px;
+}
+.container .label {
+    padding: 15px;
+    width: 620px; 
+    font-size: 12px; /* Set font size to a smaller value */
+    padding: 2px;    /* Add some padding if needed */
+    margin: 2px 0;   /* Adjust the margin to fit the layout */
+    color: #333; 
+}
+
+.container .label input {
+    padding: 15px;
+    width: 420px; 
+    font-size: 12px; /* Set font size to a smaller value */
+    padding: 2px;    /* Add some padding if needed */
+    margin: 2px 0;   /* Adjust the margin to fit the layout */
+    color: #333; 
+}
+
+
+
+
+
+
 

@@ -71,7 +71,6 @@ const SignUp = (async) => {
       {!showLogin ? (
         <div className="container">
           <h2>Sign Up</h2>
-          <div className="underline"></div>
           <form onSubmit={handleSubmit}>
             <div className="inputs">
               <div>
