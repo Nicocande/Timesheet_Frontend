@@ -66,50 +66,52 @@ const TimeSheetsList = () => {
   }, []);
 
   return (
-    <div className="container-fluid mt-5 d-block">
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {!error && timesheets.length === 0 && <p>No timesheets found.</p>}
-      <div className="row">
-        {timesheets.map((timesheet) => (
-          <div className="col-md-4 mb-4" key={timesheet.id}>
-            <div className="card">
-              <div className="card-header">
-                <h5 className="card-title">{timesheet.activity}</h5>
+    <body>
+        <div className="container-fluid mt-5 d-block">
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          {!error && timesheets.length === 0 && <p>No timesheets found.</p>}
+          <div className="row">
+            {timesheets.map((timesheet) => (
+              <div className="col-md-4 mb-4" key={timesheet.id}>
+                <div className="card">
+                  <div className="card-header">
+                    <h5 className="card-title">{timesheet.activity}</h5>
+                  </div>
+                  <div className="card-body">
+                    <p className="card-text">{timesheet.description}</p>
+                    <p>Start: {timesheet.start}</p>
+                    <p>End: {timesheet.end}</p>
+                    {confirmationId === timesheet.id ? (
+                      <>
+                        <button
+                          className="btn btn-danger col"
+                          onClick={() => handleDelete(timesheet.id)}
+                        >
+                          Confirm
+                        </button>
+                        <button
+                          className="btn btn-secondary col"
+                          onClick={handleCancel}
+                        >
+                          Cancel
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        id={timesheet.id}
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(timesheet.id)}
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
-              <div className="card-body">
-                <p className="card-text">{timesheet.description}</p>
-                <p>Start: {timesheet.start}</p>
-                <p>End: {timesheet.end}</p>
-                {confirmationId === timesheet.id ? (
-                  <>
-                    <button
-                      className="btn btn-danger col"
-                      onClick={() => handleDelete(timesheet.id)}
-                    >
-                      Confirm
-                    </button>
-                    <button
-                      className="btn btn-secondary col" 
-                      onClick={handleCancel}
-                    >
-                      Cancel
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    id={timesheet.id}
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(timesheet.id)}
-                  >
-                    Delete
-                  </button>
-                )}
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+    </body>
   );
 };
 

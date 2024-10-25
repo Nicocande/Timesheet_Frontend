@@ -13,11 +13,5 @@
 }
 
 
-.content {
-  height: 150vh; /* Imposta un'altezza maggiore di viewport per abilitare lo scroll */
-  overflow-y: auto; /* Abilita lo scroll verticale */
-}
-.scrollable-container {
-  max-height: 400px; /* Altezza massima del contenitore */
-  overflow-y: auto; /* Abilita lo scroll verticale */
-}
+
+

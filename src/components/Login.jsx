@@ -82,14 +82,6 @@ const Login = ({ firstemail, firstpwd }) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="logo">
-          <div className="col-sm-6">
-            <h3>MyTimeSheet</h3>
-          </div>
-          <div className="col-sm-6">
-            <img src={TimeSheetLogo} alt="" />
-          </div>
-        </div>
       </div>
       <div className="header">
         <h2>Log In</h2>

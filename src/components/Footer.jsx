@@ -4,7 +4,7 @@ import TimeSheetLogo from "../images/TimesheetLogo.png";
 export function Component() {
   return (
     <div className="container-fluid">
-      <div className="bg-info d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
+      <div className="d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
         <div className="logo">
          <img src= {TimeSheetLogo} alt=""/>
         </div>

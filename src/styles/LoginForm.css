@@ -125,3 +125,20 @@
   background-color: #e60000; /* Darker red on hover */
 }
 
+.logo {
+  background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity));
+  margin-top: 2%;
+  display: flex;          /* Use flexbox layout */
+  align-items: center;   /* Center items vertically */
+}
+
+.logo img {
+  margin-right: 10px;    /* Add space between the logo and title */
+  height: 40px;          /* Set a height for the image, adjust as needed */
+  width: auto;           /* Maintain aspect ratio of the image */
+}
+
+.logo h3 {
+  margin: 0;             /* Remove default margin on h3 */
+}
+
