@@ -8,7 +8,7 @@ import TimeSheetLogo from "../images/TimesheetLogo.png";
 
 const Navbar = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
       <nav className="navbar navbar-expand-lg navbar-light navbar-item a:hover">
         <div className="logo">
           <h3>MyTimeSheet</h3> <img src= {TimeSheetLogo} alt=""/>

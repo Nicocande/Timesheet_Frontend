@@ -3,8 +3,8 @@ import TimeSheetLogo from "../images/TimesheetLogo.png";
 
 export function Component() {
   return (
-    <div className="container-fluid">
-      <div className="d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
+    <div className="container-fluid mt-5">
+      <div className=" bg-info d-flex flex-wrap justify-content-between align-items-center flex-wrap py-3  border-top">
         <div className="logo">
          <img src= {TimeSheetLogo} alt=""/>
         </div>

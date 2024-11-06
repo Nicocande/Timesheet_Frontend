@@ -129,7 +129,8 @@
   background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity));
   margin-top: 2%;
   display: flex;          /* Use flexbox layout */
-  align-items: center;   /* Center items vertically */
+  align-items: center;
+  border-radius: 50px;
 }
 
 .logo img {
