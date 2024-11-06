@@ -69,7 +69,7 @@ const SignUp = (async) => {
   return (
     <div>
       {!showLogin ? (
-        <div className="container">
+        <div className="container mt-5">
           <h2>Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <div className="inputs">

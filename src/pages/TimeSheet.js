@@ -7,9 +7,7 @@ const TimeSheet = () => {
   return (
     <>
       <Navbar />
-
       <TimeSheetsList />
-
       <Component />
     </>
   );
