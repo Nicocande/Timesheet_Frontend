@@ -99,7 +99,7 @@ const TimeSheetsList = () => {
       //setError("Failed to update timesheet");
     }
   };
-  
+
 
   return (
     <body>
@@ -117,38 +117,40 @@ const TimeSheetsList = () => {
                   <p className="card-text">{timesheet.description}</p>
                   <p>Start: {timesheet.start}</p>
                   <p>End: {timesheet.end}</p>
-                  <button
-                    id={timesheet.id}
-                    className="btn btn-primary"
-                    onClick={() => openModal(timesheet)}
-                  >
-                    Update
-                  </button>
-                  {confirmationId === timesheet.id ? (
-                    <>
-                      <button
-                        className="btn btn-danger col"
-                        onClick={() => handleDelete(timesheet.id)}
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        className="btn btn-secondary col"
-                        onClick={handleCancel}
-                      >
-                        Cancel
-                      </button>
-                    </>
-                  ) : (
+                  <div className="mycard">
                     <button
                       id={timesheet.id}
-                      className="btn btn-danger"
-                      onClick={() => handleDelete(timesheet.id)}
+                      className="btn btn-primary"
+                      onClick={() => openModal(timesheet)}
                     >
-                      Delete
+                      Update
                     </button>
-                  )}
+                    {confirmationId === timesheet.id ? (
+                      <>
+                        <button
+                          className="btn btn-danger col"
+                          onClick={() => handleDelete(timesheet.id)}
+                        >
+                          Confirm
+                        </button>
+                        <button
+                          className="btn btn-secondary col"
+                          onClick={handleCancel}
+                        >
+                          Cancel
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        id={timesheet.id}
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(timesheet.id)}
+                      >
+                        Delete
+                      </button>
+                    )}
 
+                  </div>
                 </div>
               </div>
               {showModal && (
