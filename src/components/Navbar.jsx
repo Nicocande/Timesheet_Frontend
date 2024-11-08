@@ -29,7 +29,7 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item ">
               <NavLink to="/timesheet" className={TimeSheet}>
-                TimeSheets
+                TimeSheet
               </NavLink>
             </li>
             <li className="nav-item ">
