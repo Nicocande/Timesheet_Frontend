@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import HomePage from "../pages/HomePage";
 import AddTimeSheet from "../pages/AddTimeSheet";
-import TimeSheet from "../pages/TimeSheet";
+import TimeSheetList from "../pages/TimeSheetList";
+import Tecnologia from "../pages/Tecnologia";
 
 const Navbar = () => {
   return (
@@ -9,18 +9,18 @@ const Navbar = () => {
       <div className="container-fluid navbar-item a:hover">
         <ul className="navbar-nav  me-auto">
           <li className="nav-item flex gap-10">
-            <NavLink to="/" className={HomePage}>
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item ">
-            <NavLink to="/timesheet" className={TimeSheet}>
+            <NavLink to="/timesheetlist" className={TimeSheetList}>
               TimeSheets
             </NavLink>
           </li>
           <li className="nav-item ">
             <NavLink to="/addtimesheet" className={AddTimeSheet}>
-              Add NewTimeSheet
+              AddTimeSheet
+            </NavLink>
+          </li>
+          <li className="nav-item ">
+            <NavLink to="/tecnologia" className={Tecnologia}>
+              Tecnologia
             </NavLink>
           </li>
         </ul>

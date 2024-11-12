@@ -1,17 +1,16 @@
-import React from 'react';
-import TimeSheetForm from '../components/TimeSheetForm';
+import React from 'react'
+import TimeSheet from '../components/TimeSheet';
 import Navbar from '../components/Navbar';
 import Component from '../components/Footer';
 
-
-const AddTimeSheetPage = () => {
+const TimeSheetList = () => {
     return (
         <>
             <Navbar />
-            <TimeSheetForm />
+            <TimeSheet />
             <Component />
         </>
     )
 }
 
-export default AddTimeSheetPage;
+export default TimeSheetList;

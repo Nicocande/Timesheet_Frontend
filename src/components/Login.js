@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 
-const LoginPage = () => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     const [error, setError] = useState(null);
@@ -73,5 +73,5 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default Login;
 
